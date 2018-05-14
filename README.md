@@ -96,4 +96,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ## License
 
-MIT · [Lucas Bassetti](http://lucasbassetti.com.br)
+MIT
