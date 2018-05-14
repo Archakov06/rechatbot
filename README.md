@@ -7,7 +7,13 @@ This is a ready-made simple chat bot component, to develop your own chat bots fo
 ## Install (not working)
 
 ```bash
-npm install react-chatbot || yarn add react-chatbot
+npm install react-chatbot
+```
+
+or
+
+```bash
+yarn add react-chatbot
 ```
 
 ## Usage
