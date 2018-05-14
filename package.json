@@ -1,0 +1,67 @@
+{
+  "name": "react-chatbot",
+  "description": "This is a ready-made simple chat bot component, to develop your own chat bots for the site.",
+  "version": "0.1.0",
+  "private": false,
+  "author": "Archakov Dennis <hello@archakov.im> (https://archakov.im)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Archakov06/react-chatbot"
+  },
+  "bugs": {
+    "url": "https://github.com/Archakov06/react-chatbot/issues"
+  },
+  "homepage": "https://github.com/Archakov06/react-chatbot#readme",
+  "keywords": [
+    "react",
+    "chatbot",
+    "react-chatbot",
+    "bot",
+    "chat"
+  ],
+  "main": "build/lib/components/index.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "chai-enzyme": "beta",
+    "classnames": "^2.2.5",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-enzyme": "^0.8.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "jsdom": "^11.10.0",
+    "mocha": "^5.1.1",
+    "sinon": "^5.0.7",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.2.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/**/*.jsx",
+    "test": "mocha --require babel-register --require tests/helpers/browser.js tests/*.js --exit",
+    "prepublish": "npm run build",
+    "prepush": "npm run lint && npm run test",
+    "start": "./node_modules/.bin/webpack-dev-server --inline --content-base build/",
+    "build": "./node_modules/.bin/webpack --config webpack.config.prod.js -p"
+  },
+  "license": "MIT"
+}
