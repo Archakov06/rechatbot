@@ -21,9 +21,8 @@ class Demo extends Component {
     return (
       <div className="chat">
         <ChatBot
-          hideUserMessage={true}
           welcomeMessage={0}
-          delay={0}
+          delay={800}
           messages={messages}
           onSendMessage={this.addMessage.bind(this)}
           avatars={{
