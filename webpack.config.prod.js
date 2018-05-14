@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const precss = require('precss');
 const autoprefixer = require('autoprefixer');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index'),
@@ -19,6 +20,7 @@ module.exports = {
     filename: 'app.js'
   },
   plugins: [
+    new CleanWebpackPlugin(['app.js', 'index.html']),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
       compress: false
