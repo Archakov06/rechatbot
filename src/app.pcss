@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  background-image: linear-gradient(170deg, #9a31ff, #131454 96%);
+  height: 100%;
+
+  .container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button {
+    display: inline-block;
+    border-radius: 30px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    font-family: 'Raleway';
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: #fff;
+    text-decoration: none;
+    &--git {
+      background-color: #27144d;
+      &:hover {
+        background-color: #190c30;
+      }
+    }
+    &--doc {
+      background-color: #8a5be8;
+      &:hover {
+        background-color: #9669f1;
+      }
+    }
+  }
+
+  .info {
+    color: #fff;
+    &__center {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &__buttons {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      margin-top: 60px;
+      margin-bottom: 40px;
+      .button {
+        &:first-of-type {
+          margin-right: 20px;
+          flex: 1;
+        }
+        &:last-of-type {
+          width: 170px;
+        }
+      }
+    }
+    h1,
+    .button {
+      font-family: 'Raleway';
+    }
+    h1 {
+      font-size: 48px;
+      letter-spacing: 1px;
+      text-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      letter-spacing: -0.3px;
+      line-height: 32px;
+      font-family: 'Roboto Mono';
+      max-width: 400px;
+    }
+  }
+
+  .chat {
+    background-color: #fff;
+    width: 380px;
+    height: 600px;
+    border-radius: 30px;
+    box-shadow: 0 20px 30px 0 #32325d;
+    position: relative;
+    overflow: hidden;
+    &__messages {
+      padding: 30px 25px;
+      min-height: 530px;
+    }
+    &__input {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      input {
+        background: #f4efff;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        height: 70px;
+        font-size: 14px;
+        letter-spacing: 0.25px;
+        padding: 0 30px;
+      }
+    }
+  }
+}

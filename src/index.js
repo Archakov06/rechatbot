@@ -1,3 +1,5 @@
-import ChatBot from './ChatBot';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-export default ChatBot;
+ReactDOM.render(<App />, document.getElementById('root'));

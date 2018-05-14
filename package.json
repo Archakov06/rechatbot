@@ -1,6 +1,7 @@
 {
   "name": "react-chatbot",
-  "description": "This is a ready-made simple chat bot component, to develop your own chat bots for the site.",
+  "description":
+    "This is a ready-made simple chat bot component, to develop your own chat bots for the site.",
   "version": "0.1.0",
   "private": false,
   "author": "Archakov Dennis <hello@archakov.im> (https://archakov.im)",
@@ -12,21 +13,18 @@
     "url": "https://github.com/Archakov06/react-chatbot/issues"
   },
   "homepage": "https://github.com/Archakov06/react-chatbot#readme",
-  "keywords": [
-    "react",
-    "chatbot",
-    "react-chatbot",
-    "bot",
-    "chat"
-  ],
+  "keywords": ["react", "chatbot", "react-chatbot", "bot", "chat"],
   "main": "build/lib/components/index.js",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "dependencies": {
     "chai-enzyme": "beta",
     "classnames": "^2.2.5",
+    "cssnano": "^3.10.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "postcss-color-function": "^4.0.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-loader": "^2.1.5",
+    "postcss-nested": "^3.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ChatMessage from './components/ChatMessage';
+import ChatMessage from './ChatMessage';
 
 import './index.css';
 

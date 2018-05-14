@@ -2,15 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'react-chatbot.js',
-    publicPath: 'dist/',
+    path: path.resolve(__dirname, ''),
+    filename: 'app.js',
+    publicPath: '/',
     libraryTarget: 'umd',
-    library: 'react-chatbot'
+    library: 'app'
   },
   resolve: {
     modules: ['node_modules'],
@@ -24,18 +25,42 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        test: /\.(css)$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.(css|pcss)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: loader => [
+                require('postcss-cssnext')({
+                  warnForDuplicates: false
+                }),
+                require('postcss-nested')(),
+                require('postcss-color-function')(),
+                require('cssnano')()
+              ],
+              build: { autoprefixer: false }
+            }
+          }
+        ]
       }
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        context: path.resolve(__dirname, 'src/'),
+        from: 'index.html',
+        to: path.resolve(__dirname, '')
+      }
+    ]),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['app.js', 'index.html']),
     new UglifyJsPlugin({
       comments: false,
       sourceMap: false,
