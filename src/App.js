@@ -32,7 +32,7 @@ class App extends Component {
               </p>
               <div className="info__buttons">
                 <a
-                  href="https://github.com/Archakov06/react-chatbot/wiki.md"
+                  href="https://github.com/Archakov06/react-chatbot#usage"
                   className="button button--doc"
                 >
                   Documentation
@@ -71,7 +71,7 @@ class App extends Component {
                   {
                     label: 'Github',
                     callback: () => {
-                      global.location.href = 'https://github.com';
+                      global.location.href = 'https://github.com/Archakov06/react-chatbot';
                     }
                   }
                 ]
@@ -82,7 +82,7 @@ class App extends Component {
                   {
                     label: 'Open documentation',
                     callback: () => {
-                      global.location.href = 'https://github.com';
+                      global.location.href = 'https://github.com/Archakov06/react-chatbot#usage';
                     }
                   }
                 ]
