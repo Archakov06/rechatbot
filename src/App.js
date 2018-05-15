@@ -44,6 +44,22 @@ class App extends Component {
                   GitHub
                 </a>
               </div>
+              <div className="info__github">
+                <iframe
+                  src="https://ghbtns.com/github-btn.html?user=Archakov06&repo=react-chatbot&type=star&count=true&size=large"
+                  frameBorder="0"
+                  scrolling="0"
+                  width="120px"
+                  height="30px"
+                />
+                <iframe
+                  src="https://ghbtns.com/github-btn.html?user=Archakov06&repo=react-chatbot&type=fork&count=true&size=large"
+                  frameBorder="0"
+                  scrolling="0"
+                  width="120px"
+                  height="30px"
+                />
+              </div>
             </div>
           </div>
           <ChatBot
