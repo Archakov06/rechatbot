@@ -49,14 +49,14 @@ class App extends Component {
                   src="https://ghbtns.com/github-btn.html?user=Archakov06&repo=react-chatbot&type=star&count=true&size=large"
                   frameBorder="0"
                   scrolling="0"
-                  width="120px"
+                  width="125px"
                   height="30px"
                 />
                 <iframe
                   src="https://ghbtns.com/github-btn.html?user=Archakov06&repo=react-chatbot&type=fork&count=true&size=large"
                   frameBorder="0"
                   scrolling="0"
-                  width="120px"
+                  width="125px"
                   height="30px"
                 />
               </div>
