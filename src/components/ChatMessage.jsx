@@ -3,23 +3,10 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 const ChatMessage = props => {
-  const {
-    sendAction,
-    placeholder,
-    text,
-    buttons,
-    avatars,
-    image,
-    isUser,
-    hideAvatar,
-    last,
-  } = props;
+  const { sendAction, placeholder, text, buttons, avatars, image, isUser, hideAvatar } = props;
 
   return (
-    <li
-      className={classnames('chat__message', {
-        'chat__message--user': isUser,
-      })}>
+    <li className={classnames('chat__message', { 'chat__message--user': isUser })}>
       {!hideAvatar && (
         <div
           className="chat__avatar"
@@ -30,10 +17,7 @@ const ChatMessage = props => {
       )}
       <div className="chat__content">
         {(placeholder || text) && (
-          <div
-            className={classnames('chat__text', {
-              'chat__text--placeholder': placeholder,
-            })}>
+          <div className={classnames('chat__text', { 'chat__text--placeholder': placeholder })}>
             {typeof text === 'function' ? text(props) : text}
             {placeholder && (
               <p>
