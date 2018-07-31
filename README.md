@@ -2,7 +2,7 @@
 
 This is a ready-made simple chat bot component, to develop your own chat bots for the site.
 
-<img src="https://hsto.org/webt/7x/lx/ic/7xlxicqbxkiz0gyehamgurn-e_k.gif" />
+<img src="https://hsto.org/webt/68/3j/zl/683jzl8dg5u1daqu8agqpf1ff44.gif" />
 
 ## Install
 

@@ -36,6 +36,14 @@
   max-width: var(--max-width-bubble);
 }
 
+.chat__content--scale {
+  animation: scale-message 0.3s;
+}
+
+.chat__content--slideup {
+  animation: slideup-message 0.3s;
+}
+
 .chat__message--user {
   flex-direction: row-reverse;
 }
@@ -161,5 +169,25 @@
   }
   100% {
     opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes scale-message {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes slideup-message {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

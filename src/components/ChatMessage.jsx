@@ -4,7 +4,17 @@ import PropTypes from 'prop-types';
 import Loading from './Loading';
 
 const ChatMessage = props => {
-  const { sendAction, loading, text, buttons, avatars, image, isUser, hideAvatar } = props;
+  const {
+    sendAction,
+    loading,
+    text,
+    buttons,
+    avatars,
+    image,
+    isUser,
+    hideAvatar,
+    animation,
+  } = props;
 
   return (
     <li className={classnames('chat__message', `chat__message--${isUser ? 'user' : 'bot'}`)}>
@@ -16,7 +26,7 @@ const ChatMessage = props => {
           }}
         />
       )}
-      <div className="chat__content">
+      <div className={classnames('chat__content', `chat__content--${animation}`)}>
         {(loading || text) && (
           <div className={classnames('chat__text')}>
             {typeof text === 'function' ? text(props) : text}
@@ -52,6 +62,7 @@ ChatMessage.defaultProps = {
   buttons: [],
   avatars: {},
   image: '',
+  animation: 'none',
   isUser: false,
   hideAvatar: false,
 };
@@ -65,6 +76,7 @@ ChatMessage.propTypes = {
   image: PropTypes.string,
   isUser: PropTypes.bool,
   hideAvatar: PropTypes.bool,
+  animation: PropTypes.string,
 };
 
 export default ChatMessage;

@@ -167,7 +167,14 @@ class ChatBot extends React.Component {
   }
 
   render() {
-    const { messages, hideAvatar, hideUserMessage, avatars, inputPlaceholder } = this.props;
+    const {
+      messages,
+      animation,
+      hideAvatar,
+      hideUserMessage,
+      avatars,
+      inputPlaceholder,
+    } = this.props;
     const { loading, finished } = this.state;
     return (
       <div className="chat">
@@ -182,6 +189,7 @@ class ChatBot extends React.Component {
                 avatars={avatars}
                 sendAction={this.sendAction.bind(this)}
                 key={`${msg.id}_${index}`}
+                animation={animation}
                 {...msg}
               />
             );
@@ -210,6 +218,7 @@ ChatBot.defaultProps = {
   delay: 1000,
   avatars: null,
   inputPlaceholder: 'Enter you answer...',
+  animation: 'none',
 };
 
 ChatBot.propTypes = {
@@ -222,6 +231,7 @@ ChatBot.propTypes = {
   messages: PropTypes.array.isRequired,
   avatars: PropTypes.object,
   onSendMessage: PropTypes.func.isRequired,
+  animation: PropTypes.string,
 };
 
 export default ChatBot;

@@ -57,6 +57,7 @@ class FormDemo extends Component {
           options={questions}
           avatars={config.avatars}
           delay={config.delay}
+          animation="slideup"
           onSendMessage={this.handleMessage}
         />
       </div>
