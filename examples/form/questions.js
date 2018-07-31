@@ -1,38 +1,4 @@
 import React from 'react';
-import { Loading } from '../../src';
-
-class HttpBin extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      data: null,
-    };
-  }
-  componentWillMount() {
-    console.log(this.props, 999);
-    fetch('https://httpbin.org/get')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          data,
-        });
-      });
-  }
-  render() {
-    const { data } = this.state;
-    return (
-      <div>
-        {data ? (
-          <div>
-            Your IP: <b>{data.origin}</b>
-          </div>
-        ) : (
-          <Loading />
-        )}
-      </div>
-    );
-  }
-}
 
 export default [
   {
@@ -54,18 +20,18 @@ export default [
   {
     id: 'yourself',
     text: 'Tell me about yourself 😉',
-    call: 'yourname',
+    call: 'myname',
   },
   {
-    id: 'yourname',
+    id: 'myname',
     text: 'What is your name?',
-    call: 'yourold',
+    call: 'myold',
     input: true,
-    validator: value => /^[a-zA-Z]+$/.test(value),
     delay: 2000,
+    validator: value => /^[a-zA-Z]+$/.test(value),
   },
   {
-    id: 'yourold',
+    id: 'myold',
     text: ({ formData }) => `Okay, ${formData.name}! How old are you?`,
     call: 'thanku',
     input: true,
@@ -74,11 +40,20 @@ export default [
   {
     id: 'thanku',
     text: ({ formData }) => `Cool, ${formData.name}! Your old ${formData.old}. All right?`,
-    validator: value => /^(yes|no)$/.test(value),
+    buttons: [
+      {
+        label: 'Yes',
+        callback: 'yes',
+      },
+      {
+        label: 'No',
+        callback: 'no',
+      },
+    ],
   },
   {
     id: 'no',
-    text: 'Wow! And what is wrong? Write a "yourname" or "yourold"?',
+    text: 'Wow! And what is wrong? Write a "myname" or "myold"?',
     input: true,
   },
   {
@@ -111,10 +86,6 @@ export default [
   {
     id: 'repeat',
     call: 'welcome',
-  },
-  {
-    id: 'myip',
-    text: <HttpBin />,
   },
   {
     text: 'Sorry, I can not understand what you mean.',

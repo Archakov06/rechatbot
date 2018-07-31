@@ -47,7 +47,6 @@ const ChatMessage = props => {
 };
 
 ChatMessage.defaultProps = {
-  sendAction: () => {},
   loading: false,
   text: '',
   buttons: [],
@@ -67,5 +66,5 @@ ChatMessage.propTypes = {
   isUser: PropTypes.bool,
   hideAvatar: PropTypes.bool,
 };
-sendAction, loading, text, buttons, avatars, image, isUser, hideAvatar
+
 export default ChatMessage;

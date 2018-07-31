@@ -1,14 +1,16 @@
 const path = require('path');
 
+const demoFolder = 'form';
+
 module.exports = {
-  entry: path.resolve(__dirname, 'examples/async/index'),
+  entry: path.resolve(__dirname, 'examples/' + demoFolder + '/index'),
   output: {
-    path: path.resolve(__dirname, 'examples/async'),
+    path: path.resolve(__dirname, 'examples/' + demoFolder),
     publicPath: '/',
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: path.join(__dirname, 'examples/async'),
+    contentBase: path.join(__dirname, 'examples/' + demoFolder),
     host: '0.0.0.0',
     disableHostCheck: true,
   },
