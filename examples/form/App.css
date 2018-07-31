@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700');
+
+* {
+  font-family: 'Open Sans';
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-image: linear-gradient(0deg, #ce3de0, #ff2b79 0%);
+}
+
+.chat {
+  width: 600px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chat__text {
+  border: none;
+  box-shadow: 0 4px 10px rgba(132, 56, 128, 0.6);
+}
+
+.chat__message--user .chat__text,
+.chat__buttons button {
+  background-color: #ff1798;
+}
+
+.chat__buttons button {
+  background-color: #ff40aa;
+  margin-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #d22fb6;
+}
+
+.chat__buttons button:hover {
+  background-color: #ff4aae;
+}
+
+.chat__buttons button:last-of-type {
+  border-radius: 0 0 6px 6px;
+  border-bottom: 0;
+}
+
+.chat__input input {
+  padding: 15px;
+  border-radius: 3px;
+  border: 2px solid #5830b9;
+  font-size: 15px;
+  width: 93.1%;
+  margin-left: 7%;
+}
+
+.chat-wrapper__bg {
+  background-color: #574aab !important;
+  opacity: 0.6;
+  background-image: url(https://landbot.io/test/l2/app-landing/img/features-bg.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

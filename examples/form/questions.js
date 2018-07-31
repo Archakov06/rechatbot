@@ -43,11 +43,11 @@ export default [
     buttons: [
       {
         label: 'Yes',
-        callback: 'yes',
+        callback: 'Yes',
       },
       {
         label: 'No',
-        callback: 'no',
+        callback: 'No',
       },
     ],
   },
@@ -55,6 +55,16 @@ export default [
     id: 'no',
     text: 'Wow! And what is wrong? Write a "myname" or "myold"?',
     input: true,
+    buttons: [
+      {
+        label: 'Old',
+        callback: 'myold',
+      },
+      {
+        label: 'Name',
+        callback: 'myname',
+      },
+    ],
   },
   {
     id: 'yes',

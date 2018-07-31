@@ -20,7 +20,7 @@ class Demo extends Component {
   render() {
     const { messages } = this.state;
     return (
-      <div className="chat">
+      <div className="chat-wrapper">
         <ChatBot
           welcomeMessage={0}
           delay={800}

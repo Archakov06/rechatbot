@@ -25,7 +25,7 @@ class AsyncDemo extends Component {
   render() {
     const { messages, wait } = this.state;
     return (
-      <div className="chat">
+      <div className="chat-wrapper">
         <ChatBot
           welcomeId="welcome"
           messages={messages}

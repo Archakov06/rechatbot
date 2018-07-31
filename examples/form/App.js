@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChatBot, { mergeMessage } from '../../src';
 
 import '../../dist/index.css';
+import './App.css';
 
 import questions from './questions';
 import config from './config';
@@ -50,7 +51,8 @@ class FormDemo extends Component {
   render() {
     const { messages } = this.state;
     return (
-      <div className="chat">
+      <div className="chat-wrapper">
+        <div className="chat-wrapper__bg" />
         <ChatBot
           welcomeId="welcome"
           messages={messages}

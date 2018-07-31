@@ -3,7 +3,7 @@
   --purple-bright: #a578ff;
   --buble-border-color: #e5ebf1;
   --input-border-color: #e8e8e8;
-  --chat-width: 350px;
+  --chat-width: 320px;
   --chat-max-height: 500px;
   --max-width-bubble: 80%;
 }
@@ -13,12 +13,7 @@
   padding: 0;
   list-style: none;
   outline: none;
-  font-family: Roboto;
   box-sizing: border-box;
-}
-
-.chat {
-  width: var(--chat-width);
 }
 
 .chat__messages {
