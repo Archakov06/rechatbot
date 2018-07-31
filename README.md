@@ -4,16 +4,16 @@ This is a ready-made simple chat bot component, to develop your own chat bots fo
 
 <img src="https://habrastorage.org/webt/uy/9a/od/uy9aod3yyp2rqj2xw1vnceyndbi.gif" />
 
-## Install (not working)
+## Install
 
 ```bash
-npm install react-chatbot
+npm install rechatbot
 ```
 
 or
 
 ```bash
-yarn add react-chatbot
+yarn add rechatbot
 ```
 
 ## Usage
@@ -25,49 +25,50 @@ import ChatBot from 'react-chatbot';
 
 const options = [
   {
+    id: 'welcome',
     text: 'Welcome, to React ChatBot!',
-    handle: 'welcome',
     buttons: [
       {
-        label: 'Author',
-        value: 'author'
+        label: 'Docs',
+        call: 'docs',
       },
       {
         label: 'Github',
-        callback: () => {
+        call: () => {
           global.location.href = 'https://github.com/Archakov06/react-chatbot';
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
-    handle: 'author',
+    id: 'docs',
     buttons: [
       {
-        label: 'Open author GitHub',
+        label: 'Open docs on GitHub',
         callback: () => {
-          global.location.href = 'https://github.com/Archakov06/';
-        }
-      }
-    ]
+          global.location.href = 'https://github.com/Archakov06/rechatbot';
+        },
+      },
+    ],
   },
   {
+    id: null,
     text: 'Sorry, I can not understand what you mean.',
-    handle: null
-  }
+  },
 ];
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: []
+      messages: [],
     };
+    this.addMessage = this.addMessage.bind(this);
   }
 
   addMessage(obj) {
     this.setState({
-      messages: [...this.state.messages, obj]
+      messages: [...this.state.messages, obj],
     });
   }
 
@@ -76,15 +77,15 @@ class App extends Component {
     return (
       <div className="chat">
         <ChatBot
-          welcomeMessage={0}
+          welcomeId="welcome"
           delay={800}
           messages={messages}
-          onSendMessage={this.addMessage.bind(this)}
+          options={options}
+          onSendMessage={this.addMessage}
           avatars={{
             user: 'https://pp.userapi.com/c834104/v834104145/5ca01/AsZGGgLNr-4.jpg',
-            bot: 'https://pp.userapi.com/c631216/v631216247/21c8b/qF8SubyAdsU.jpg'
+            bot: 'https://pp.userapi.com/c631216/v631216247/21c8b/qF8SubyAdsU.jpg',
           }}
-          options={options}
         />
       </div>
     );
@@ -94,11 +95,40 @@ class App extends Component {
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
+## Documentation
+
+### ChatBot
+
+| Property           | Type                                                      | Description                                                          |
+| ------------------ | --------------------------------------------------------- | -------------------------------------------------------------------- |
+| `welcomeId`        | PropTypes.oneOfType([PropTypes.string, PropTypes.number]) | First message when you start a chat                                  |
+| `messages`         | PropTypes.array.isRequired                                | List of messages (You must be maintained in a `this.state.messages`) |
+| `options`          | PropTypes.array.isRequired                                | List of all available commands                                       |
+| `avatars`          | PropTypes.object                                          | User and bot avatar                                                  |
+| `delay`            | PropTypes.number                                          | Time delay message from the bot                                      |
+| `hideUserMessage`  | PropTypes.bool                                            | Hide user messages                                                   |
+| `hideAvatar`       | PropTypes.bool                                            | Hide avatars                                                         |
+| `inputPlaceholder` | PropTypes.string                                          | Input placeholder text                                               |
+| `onSendMessage`    | PropTypes.func.isRequired                                 | Callback function when a new message comes from a bot or user        |
+
+### ChatMessage
+
+| Property     | Type                                                                      | Description                    |
+| ------------ | ------------------------------------------------------------------------- | ------------------------------ |
+| `loading`    | PropTypes.bool                                                            | Message is loading             |
+| `text`       | PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func]) | Message text (text, component) |
+| `buttons`    | PropTypes.array                                                           | Inline buttons                 |
+| `sendAction` | PropTypes.func                                                            | Inline buttons callback        |
+| `avatars`    | PropTypes.object                                                          | User and bot avatar            |
+| `image`      | PropTypes.string                                                          | Attached image                 |
+| `isUser`     | PropTypes.string                                                          | Message from the user          |
+| `hideAvatar` | PropTypes.bool                                                            | Hide avatars                   |
+
 ## Author
 
-* Name: Archakov Dennis
-* Website: https://archakov.im
-* E-Mail: hello@archakov.im
+- Name: Archakov Dennis
+- Website: https://archakov.im
+- E-Mail: hello@archakov.im
 
 ## License
 

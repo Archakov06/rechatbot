@@ -26,14 +26,15 @@ class ChatBot extends React.Component {
    */
   getMessage(msg) {
     const { options } = this.props;
-    return options.filter(
-      o =>
-        o.handle
-          ? o.handle instanceof RegExp
-            ? new RegExp(o.handle).test(msg.text)
-            : o.handle.toLowerCase() === msg.text.toLowerCase()
-          : false
-    )[0];
+    return options.filter(o => {
+      if (o.id) {
+        if (o.id instanceof RegExp) {
+          return new RegExp(o.id).test(msg.text);
+        } else {
+          return o.id.toLowerCase() === msg.text.toLowerCase();
+        }
+      }
+    })[0];
   }
 
   /**
@@ -64,7 +65,12 @@ class ChatBot extends React.Component {
       ? this.getMessageById(inputCall)
       : this.getMessage(msg) || notUnderstand;
 
-    this.renderDelayMessage(botReply, msg);
+    if (botReply.text) {
+      this.renderDelayMessage(botReply, msg);
+    } else if (botReply.call) {
+      const callMsg = this.getMessageById(botReply.call);
+      this.handleNewMessage(callMsg);
+    }
   }
 
   /**
@@ -100,7 +106,7 @@ class ChatBot extends React.Component {
           const callMsg = this.getMessageById(msg.call);
           this.renderDelayMessage(callMsg);
         }
-      }, delay);
+      }, msg.delay || delay);
     }
   }
 
@@ -113,7 +119,7 @@ class ChatBot extends React.Component {
     const { inputCall, lastMsg } = this.state;
     if (e.key === 'Enter' && (lastMsg.validator ? lastMsg.validator(e.target.value) : true)) {
       this.handleNewMessage(
-        serializeUserAnswer(e.target.value, { nextId: inputCall, lastId: lastMsg.id })
+        serializeUserAnswer(e.target.value, { nextId: inputCall, lastId: lastMsg.id }),
       );
       e.target.value = '';
     }
@@ -123,8 +129,12 @@ class ChatBot extends React.Component {
    * Отправить действие из кнопок
    * @param { string } text
    */
-  sendAction(text) {
-    this.handleNewMessage(serializeUserAnswer(text));
+  sendAction(callback) {
+    if (typeof callback === 'function') {
+      callback();
+    } else {
+      this.handleNewMessage(serializeUserAnswer(callback));
+    }
   }
 
   /**
@@ -176,7 +186,7 @@ class ChatBot extends React.Component {
               />
             );
           })}
-          {loading && <ChatMessage placeholder hideAvatar={hideAvatar} avatars={avatars} />}
+          {loading && <ChatMessage loading hideAvatar={hideAvatar} avatars={avatars} />}
         </ul>
         <div className="chat__input">
           <input
@@ -193,22 +203,25 @@ class ChatBot extends React.Component {
 
 ChatBot.defaultProps = {
   hideUserMessage: false,
-  messages: [],
-  welcomeMessage: [],
   hideAvatar: false,
+  messages: [],
+  options: [],
+  welcomeId: null,
   delay: 1000,
+  avatars: null,
   inputPlaceholder: 'Enter you answer...',
 };
 
 ChatBot.propTypes = {
   hideUserMessage: PropTypes.bool,
-  inputPlaceholder: PropTypes.string,
   hideAvatar: PropTypes.bool,
+  inputPlaceholder: PropTypes.string,
   delay: PropTypes.number,
-  welcomeMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  welcomeId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   options: PropTypes.array.isRequired,
   messages: PropTypes.array.isRequired,
-  onSendMessage: PropTypes.func,
+  avatars: PropTypes.object,
+  onSendMessage: PropTypes.func.isRequired,
 };
 
 export default ChatBot;

@@ -1,20 +1,20 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'examples/form/index'),
+  entry: path.resolve(__dirname, 'examples/async/index'),
   output: {
-    path: path.resolve(__dirname, 'examples/form'),
+    path: path.resolve(__dirname, 'examples/async'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
-    contentBase: path.join(__dirname, 'examples/form'),
+    contentBase: path.join(__dirname, 'examples/async'),
     host: '0.0.0.0',
-    disableHostCheck: true
+    disableHostCheck: true,
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   plugins: [],
   devtool: 'source-map',
@@ -23,12 +23,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
-        use: ['babel-loader']
+        use: ['babel-loader'],
       },
       {
         test: /\.(css)$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  }
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 };

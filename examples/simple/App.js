@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import ChatBot from '../../dist/react-chatbot';
-import './index.css';
+import '../../dist/index.css';
 
 class Demo extends Component {
   constructor(props) {

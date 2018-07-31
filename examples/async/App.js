@@ -96,7 +96,6 @@ class Demo extends Component {
           onSendMessage={this.handleMessage}
           avatars={config.avatars}
           delay={config.delay}
-          wait={wait}
         />
       </div>
     );
