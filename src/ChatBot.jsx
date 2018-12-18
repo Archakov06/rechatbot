@@ -13,7 +13,7 @@ class ChatBot extends React.Component {
       userInput: false,
       inputCall: null,
       lastMsg: null,
-      notUnderstand: props.options.filter(o => o.handle === null)[0],
+      notUnderstand: props.options.filter(o => o.id === null)[0],
       callMessages: [],
     };
     this.callTimer = null;
@@ -65,11 +65,19 @@ class ChatBot extends React.Component {
       ? this.getMessageById(inputCall)
       : this.getMessage(msg) || notUnderstand;
 
+    if (!botReply) {
+      throw new Error(
+        'Missing message "not understand". Add to the list of options object { id: null, text: "..." }',
+      );
+    }
+
     if (botReply.text) {
       this.renderDelayMessage(botReply, msg);
     } else if (botReply.call) {
       const callMsg = this.getMessageById(botReply.call);
       this.handleNewMessage(callMsg);
+    } else {
+      this.renderDelayMessage(botReply, msg);
     }
   }
 
@@ -119,7 +127,11 @@ class ChatBot extends React.Component {
     const { inputCall, lastMsg } = this.state;
     if (e.key === 'Enter' && (lastMsg.validator ? lastMsg.validator(e.target.value) : true)) {
       this.handleNewMessage(
-        serializeUserAnswer(e.target.value, { nextId: inputCall, lastId: lastMsg.id }),
+        serializeUserAnswer(e.target.value, {
+          nextId: inputCall,
+          lastId: lastMsg.id,
+          input: true,
+        }),
       );
       e.target.value = '';
     }

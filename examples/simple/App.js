@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ChatBot from '../../dist/react-chatbot';
+import ChatBot from '../../src';
 import '../../dist/index.css';
 
 class Demo extends Component {
@@ -22,7 +22,7 @@ class Demo extends Component {
     return (
       <div className="chat-wrapper">
         <ChatBot
-          welcomeMessage={0}
+          welcomeId="welcome"
           delay={800}
           messages={messages}
           onSendMessage={this.addMessage.bind(this)}
@@ -33,37 +33,37 @@ class Demo extends Component {
           options={[
             {
               text: 'Welcome, to React ChatBot!',
-              handle: 'welcome',
+              id: 'welcome',
               buttons: [
                 {
                   label: 'Help',
-                  value: 'help',
+                  callback: 'help',
                 },
                 {
                   label: 'Docs',
-                  value: 'docs',
+                  callback: 'docs',
                 },
                 {
                   label: 'Github',
                   callback: () => {
-                    global.location.href = 'https://github.com';
+                    global.location.href = 'https://github.com/Archakov06/rechatbot';
                   },
                 },
               ],
             },
             {
-              handle: 'docs',
+              id: 'docs',
               buttons: [
                 {
                   label: 'Open documentation',
                   callback: () => {
-                    global.location.href = 'https://github.com';
+                    global.location.href = 'https://github.com/Archakov06/rechatbot';
                   },
                 },
               ],
             },
             {
-              handle: 'cats',
+              id: 'cats',
               buttons: [
                 {
                   label: 'I need more cats!!!',
@@ -96,11 +96,11 @@ class Demo extends Component {
                   <img src="http://www.iconhot.com/icon/png/bunch-cool-bluish-icons/512/info-blog.png" />
                 </div>
               ),
-              handle: 'help',
+              id: 'help',
             },
             {
               text: 'Sorry, I can not understand what you mean.',
-              handle: null,
+              id: null,
             },
           ]}
         />

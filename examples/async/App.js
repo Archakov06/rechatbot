@@ -3,8 +3,6 @@ import ChatBot, { mergeMessage } from '../../src';
 
 import '../../dist/index.css';
 
-import { switchField } from './utils';
-
 import options from './options';
 import config from './config';
 
@@ -14,7 +12,6 @@ class AsyncDemo extends Component {
     this.state = {
       messages: [],
     };
-    this.setField = this.setField.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
   }
 

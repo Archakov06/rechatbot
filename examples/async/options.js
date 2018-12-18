@@ -48,6 +48,6 @@ export default [
   },
   {
     text: 'Sorry, I can not understand what you mean.',
-    handle: null,
+    id: null,
   },
 ];

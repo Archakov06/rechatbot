@@ -1,6 +1,6 @@
 const path = require('path');
 
-const demoFolder = 'form';
+const demoFolder = 'simple';
 
 module.exports = {
   entry: path.resolve(__dirname, 'examples/' + demoFolder + '/index'),

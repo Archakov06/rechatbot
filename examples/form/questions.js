@@ -33,12 +33,12 @@ export default [
   {
     id: 'myold',
     text: ({ formData }) => `Okay, ${formData.name}! How old are you?`,
-    call: 'thanku',
+    call: 'cool',
     input: true,
     validator: value => /^\d+$/.test(value),
   },
   {
-    id: 'thanku',
+    id: 'cool',
     text: ({ formData }) => `Cool, ${formData.name}! Your old ${formData.old}. All right?`,
     buttons: [
       {
