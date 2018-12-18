@@ -1,7 +1,7 @@
 {
   "name": "rechatbot",
   "description": "This is a ready-made simple chat bot component, to develop your own chat bots for the site.",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "author": "Archakov Dennis <hello@archakov.im> (https://archakov.im)",
   "repository": {
