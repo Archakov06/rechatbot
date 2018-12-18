@@ -65,10 +65,11 @@ ChatMessage.defaultProps = {
   animation: 'none',
   isUser: false,
   hideAvatar: false,
+  sendAction: null,
 };
 
 ChatMessage.propTypes = {
-  sendAction: PropTypes.func,
+  sendAction: PropTypes.oneOfType([null, PropTypes.func]),
   loading: PropTypes.bool,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func]),
   buttons: PropTypes.array,

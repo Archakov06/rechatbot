@@ -27,18 +27,13 @@ describe('<ChatBot />', () => {
     expect(wrapper.props().delay).to.be.equal(500);
   });
 
-  it('should accept welcomeMessage', () => {
+  it('should accept welcomeId', () => {
     const onSendMessageCallback = sinon.spy();
     const wrapper = mount(
-      <ChatBot
-        onSendMessage={onSendMessageCallback}
-        welcomeMessage={0}
-        options={[]}
-        messages={[]}
-      />
+      <ChatBot onSendMessage={onSendMessageCallback} welcomeId={null} options={[]} messages={[]} />,
     );
-    expect(onSendMessageCallback.callCount).to.equal(1);
-    expect(wrapper.props().welcomeMessage).to.be.equal(0);
+    expect(onSendMessageCallback.callCount).to.equal(0);
+    expect(wrapper.props().welcomeId).to.be.equal(null);
   });
 
   it('should accept options', () => {
@@ -47,19 +42,19 @@ describe('<ChatBot />', () => {
         options={[
           {
             text: 'Welcome, to React ChatBot!',
-            handle: 'welcome',
+            id: 'welcome',
             buttons: [
               {
                 label: 'Help',
-                value: 'help'
-              }
-            ]
-          }
+                value: 'help',
+              },
+            ],
+          },
         ]}
         messages={[]}
-      />
+      />,
     );
-    expect(wrapper.props().options[0].handle).to.be.equal('welcome');
+    expect(wrapper.props().options[0].id).to.be.equal('welcome');
   });
 
   it('should accept messages', () => {
@@ -68,43 +63,42 @@ describe('<ChatBot />', () => {
         messages={[
           {
             text: 'Welcome, to React ChatBot!',
-            handle: 'welcome',
+            id: 'welcome',
             buttons: [
               {
                 label: 'Help',
-                value: 'help'
-              }
-            ]
-          }
+                value: 'help',
+              },
+            ],
+          },
         ]}
         options={[]}
-      />
+      />,
     );
-    expect(wrapper.props().messages[0].handle).to.be.equal('welcome');
+    expect(wrapper.props().messages[0].id).to.be.equal('welcome');
   });
 
   it('should accept onSendMessage', () => {
     const onSendMessageCallback = sinon.spy();
     const wrapper = mount(
       <ChatBot
-        welcomeMessage={0}
+        welcomeId="welcome"
         options={[
           {
+            id: 'welcome',
             text: 'Welcome, to React ChatBot!',
-            handle: 'welcome',
             buttons: [
               {
                 label: 'Help',
-                value: 'help'
-              }
-            ]
-          }
+                value: 'help',
+              },
+            ],
+          },
         ]}
         messages={[]}
         onSendMessage={onSendMessageCallback}
-      />
+      />,
     );
-    expect(onSendMessageCallback.callCount).to.equal(1);
-    expect(onSendMessageCallback.getCall(0).args[0].handle).to.be.equal('welcome');
+    expect(onSendMessageCallback.callCount).to.equal(0);
   });
 });
