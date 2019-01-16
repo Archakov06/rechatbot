@@ -1,7 +1,7 @@
 {
   "name": "rechatbot",
   "description": "This is a ready-made simple chat bot component, to develop your own chat bots for the site.",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "author": "Archakov Dennis <hello@archakov.im> (https://archakov.im)",
   "repository": {
@@ -30,13 +30,13 @@
     "test": "mocha --require babel-register --require tests/helpers/browser.js tests/*.js --exit",
     "prepublish": "npm run build",
     "prepush": "npm run lint && npm run test",
-    "start": "./node_modules/.bin/webpack-dev-server --inline --content-base build/",
+    "start": "./node_modules/.bin/webpack-dev-server --inline --watch --content-base build/",
     "build": "./node_modules/.bin/webpack --config webpack.config.prod.js -p"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
+    "classnames": "^2.2.5",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -62,8 +62,9 @@
     "sinon": "^5.1.1",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.2.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.11"
   },
   "license": "MIT"
 }
