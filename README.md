@@ -20,7 +20,9 @@ yarn add rechatbot
 
 ```js
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 
+import 'rechatbot/dist/index.css';
 import ChatBot from 'rechatbot';
 
 const options = [
