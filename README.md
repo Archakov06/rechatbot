@@ -20,7 +20,7 @@ yarn add rechatbot
 
 ```js
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 
 import 'rechatbot/dist/index.css';
 import ChatBot from 'rechatbot';
@@ -96,6 +96,8 @@ class App extends Component {
 
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
+
+[![Edit Rechatbot Simple Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/k9xx0007r)
 
 ## Documentation
 
