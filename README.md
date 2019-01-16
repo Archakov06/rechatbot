@@ -30,11 +30,11 @@ const options = [
     buttons: [
       {
         label: 'Docs',
-        call: 'docs',
+        callback: 'docs',
       },
       {
         label: 'Github',
-        call: () => {
+        callback: () => {
           global.location.href = 'https://github.com/Archakov06/react-chatbot';
         },
       },
